@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
+require 'bundler/setup'
+require 'js_scraping_demo'
 
-require_relative('../config/environment')
-
-CLI.new.welcome
+JsScrapingDemo::CLI.new.call

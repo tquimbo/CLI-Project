@@ -1,3 +1,5 @@
+require_relative './lib/api'
+
 class CLI
 
     def welcome
@@ -8,6 +10,17 @@ class CLI
     def zipcode
         puts "Please enter your zip code."
         input = gets.strip
+
+    end
+
+    def restaurants
+        #show restaurants
+    end
+
+    def menu
+        input = nil
+        while input !="exit"
+
     end
 
 end

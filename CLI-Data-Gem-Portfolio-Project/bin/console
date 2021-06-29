@@ -12,3 +12,5 @@ require "js_scraping_demo"
 
 require "irb"
 IRB.start(__FILE__)
+
+puts "Hello World"

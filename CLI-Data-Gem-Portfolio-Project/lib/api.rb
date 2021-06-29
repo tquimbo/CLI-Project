@@ -1,5 +1,7 @@
 class API
 
+    cli.new.welcome
+
     require 'uri'
     require 'net/http'
     require 'openssl'

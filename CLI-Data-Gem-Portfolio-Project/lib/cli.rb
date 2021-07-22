@@ -2,6 +2,13 @@ require_relative './lib/api'
 
 class CLI
 
+    def call
+        welcome
+        zipcode
+        restaurants
+        menu
+    end
+
     def welcome
         puts "Welcome to the Discover CLI App!"
         self.zipcode #calling method on an instance
@@ -11,16 +18,22 @@ class CLI
         puts "Please enter your zip code."
         input = gets.strip
 
+        @restaurants = restaurants.all
+
     end
 
     def restaurants
         #show restaurants
+    
+        @restaurants = restaurants.all
+        
+        puts "Please pick a restaurant."
+        input = gets.strip
     end
 
     def menu
         input = nil
         while input !="exit"
-
     end
 
 end

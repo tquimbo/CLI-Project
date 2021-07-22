@@ -1,4 +1,6 @@
-class location
+class restaurant
+
+    
 
 
 end

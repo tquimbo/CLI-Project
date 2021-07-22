@@ -1,7 +1,12 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "js_scraping_demo"
+require "restaurant"
+   
+require 'uri'
+require 'net/http'
+require 'openssl'
+
 
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
@@ -11,6 +16,5 @@ require "js_scraping_demo"
 # Pry.start
 
 require "irb"
-IRB.start(__FILE__)
+IRB.start
 
-puts "Hello World"

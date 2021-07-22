@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+# require "bundler/setup"
+# require 'restaurant'
+require './lib/restaurant'
+# require './lib/restaurant/cli'
+
+
+Restaurant::CLI.new.call
+

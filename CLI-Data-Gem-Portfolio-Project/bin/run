@@ -1,5 +1,0 @@
-#!/usr/bin/env ruby
-require 'bundler/setup'
-require 'js_scraping_demo'
-
-JsScrapingDemo::CLI.new.call

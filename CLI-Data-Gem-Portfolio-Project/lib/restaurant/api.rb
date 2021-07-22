@@ -1,22 +1,24 @@
-# class API
+class API
 
-#     cli.new.call
+    cli.new.call
     
-#     require 'uri'
-#     require 'net/http'
-#     require 'openssl'
+    require 'uri'
+    require 'net/http'
+    require 'openssl'
     
-#     url = URI("https://nutritionix-api.p.rapidapi.com/v1_1/item?upc=49000036756")
+    url = URI("https://edamam-food-and-grocery-database.p.rapidapi.com/parser?ingr=apple")
     
-#     http = Net::HTTP.new(url.host, url.port)
-#     http.use_ssl = true
-#     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    get GetData
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     
-#     request = Net::HTTP::Get.new(url)
-#     request["x-rapidapi-key"] = 'SIGN-UP-FOR-KEY'
-#     request["x-rapidapi-host"] = 'nutritionix-api.p.rapidapi.com'
+    request = Net::HTTP::Get.new(url)
+    request["x-rapidapi-key"] = '9981cae409mshe8ee64660ba2dd0p1de2a3jsn49b9c51fcdda'
+    request["x-rapidapi-host"] = 'edamam-food-and-grocery-database.p.rapidapi.com'
     
-#     response = http.request(request)
-#     puts response.read_body
+    response = http.request(request)
+    puts response.read_body
+    end
     
-# end
+end

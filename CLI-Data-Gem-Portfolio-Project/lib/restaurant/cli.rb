@@ -16,14 +16,14 @@ class Restaurant::CLI
         input = gets.strip
     end
 
-#     def restaurants
-#         #show restaurants
+    # def restaurants
+    #     #show restaurants
     
-#         @restaurants = restaurants.all
+    #     @restaurants = restaurants.all
         
-#         puts "Please pick a restaurant."
-#         input = gets.strip
-#     end
+    #     puts "Please pick a restaurant."
+    #     input = gets.strip
+    # end
 
 #     def menu
 #         input = nil

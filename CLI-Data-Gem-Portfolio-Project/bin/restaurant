@@ -1,9 +1,12 @@
-#!/usr/bin/env ruby
+!/usr/bin/env ruby
 
-# require "bundler/setup"
-# require 'restaurant'
+require "bundler/setup"
+require 'restaurant'
 require './lib/restaurant'
-# require './lib/restaurant/cli'
+require './lib/restaurant/cli'
+require './lib/restaurant/api'
+require './lib/restaurant/cuisine'
+require './lib/restaurant/restaurants'
 
 
 Restaurant::CLI.new.call

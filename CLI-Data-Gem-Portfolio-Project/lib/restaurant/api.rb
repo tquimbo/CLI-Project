@@ -22,8 +22,12 @@ class Restaurant
     puts response.read_body
 
    
-      binding.pry #check value of parsed_res here
-     
+      binding.pry #check value of parsed_response here
+
+      response.each do |c|
+         name =  c.text
+         type =  c.attr("value")
+         Restaurant::Cuisine.new(name, type)
    end
 
    

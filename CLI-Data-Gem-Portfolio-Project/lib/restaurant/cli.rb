@@ -34,7 +34,7 @@ class Restaurant::CLI
     def get_user_cuisine
         chosen_cuisine = gets.strip.to_i
         show_restaurants_for(chosen_cuisine) if valid_input(chosen_cuisine , @cuisine)
-      end 
+    end 
 
       def valid_input(input, data)
         input.to_i <= data.length && input.to_i > 0
@@ -42,9 +42,9 @@ class Restaurant::CLI
 
       def show_restauraums_for(chosen_cuisines)
         cuisine = @cuisine[chosen_cuisine - 1]
-        month.get_restaurants
+        cuisine.get_restaurants
         puts "Here are restaurants for #{cuisine.name}"
-        cuisine.events.each.with_index(1) do |cuisine, i|
+        cuisine.restaurant.each.with_index(1) do |cuisine, i|
           puts "#{i}. #{restaurant.name}"
         end
         get_user_restaurant(cuisine)
@@ -58,7 +58,7 @@ class Restaurant::CLI
         puts "Please enter the restaurant you want to get more information."
         input = gets.strip
         restaurant = cuisine.restaurants[input.to_i - 1]
-        restaurant.get_cuisine_details
+        restaurant.get_restaurant_details
         show_restaurant_details(restaurant)
     end
 

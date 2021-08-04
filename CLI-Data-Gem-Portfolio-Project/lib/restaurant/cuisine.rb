@@ -1,15 +1,11 @@
 class Restaurant::Cuisine
-    attr_accessor :id, :restaurant_name, :restaurant_phone, :restaurant_website, :hours, :price_range
-    attr_reader :name, :restaurant
+
+    attr_accessor :name, :restaurants, :id
     @@all = []
   
-    def initialize(name, restaurant, restaurant_phone, restaurant_website, hours, price_range, id)
+    def initialize(name, restaurants, id)
       @name = name
-      @restaurant = restaurant
-      @restaurant_phone = restaurant_phone
-      @restaurant_website = restaurant_website
-      @hours = hours
-      @price_range = price_range
+      @restaurants = []
       @id = id
       save
     end

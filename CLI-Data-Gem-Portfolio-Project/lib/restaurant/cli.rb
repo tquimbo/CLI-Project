@@ -39,26 +39,41 @@ class Restaurant::CLI
       def valid_input(input, data)
         input.to_i <= data.length && input.to_i > 0
       end   
+
+      def show_restauraums_for(chosen_cuisines)
+        cuisine = @cuisine[chosen_cuisine - 1]
+        month.get_restaurants
+        puts "Here are restaurants for #{cuisine.name}"
+        cuisine.events.each.with_index(1) do |cuisine, i|
+          puts "#{i}. #{restaurant.name}"
+        end
+        get_user_restaurant(cuisine)
+      end
     
    
 #enter your prefeerred cuisine to get a list of restaurants in that cuisine
 #you gottta send cuisine info to API and the API returns a list of restaurants 
 
-    def cuisine
-        puts "Please enter the cuisine you want."
+    def get_user_restaurant_info(cuisne)
+        puts "Please enter the restaurant you want to get more information."
         input = gets.strip
+        restaurant = cuisine.restaurants[input.to_i - 1]
+        restaurant.get_cuisine_details
+        show_restaurant_details(restaurant)
     end
 
-    def get_restaurants
-        @restaurants = Restaurant::Restaurants.all
-    end
+  
+    def show_restaurant_details(restaurant)
+        puts restaurant.name
+        restaurant.key_info.each {|i| puts "- #{i}"}
+    end 
 
-    def list_restaurants
-        puts 'Choose a restaurant to get more information.'
-        @restaurants.each.with_index(1) do |restaurant, index| 
-          puts "#{index}. #{restaurant.name}"
-        end
-      end
+    # def list_restaurants
+    #     puts 'Choose a restaurant to get more information.'
+    #     @restaurants.each.with_index(1) do |restaurant, index| 
+    #       puts "#{index}. #{restaurant.name}"
+    #     end
+    #   end
 
     # def restaurants
     #     #show restaurants

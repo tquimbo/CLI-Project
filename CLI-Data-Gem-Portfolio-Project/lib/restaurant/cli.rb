@@ -29,7 +29,16 @@ class Restaurant::CLI
         @cuisines.each.with_index(1) do |month, index| 
           puts "#{index}. #{cuisine.name}"
         end
-      end
+    end
+
+    def get_user_cuisine
+        chosen_cuisine = gets.strip.to_i
+        show_restaurants_for(chosen_cuisine) if valid_input(chosen_cuisine , @cuisine)
+      end 
+
+      def valid_input(input, data)
+        input.to_i <= data.length && input.to_i > 0
+      end   
     
    
 #enter your prefeerred cuisine to get a list of restaurants in that cuisine

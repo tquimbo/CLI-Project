@@ -21,5 +21,7 @@ class Restaurant::Restaurants
     def self.all
       @@all
     end
+
+    def 
   
   end

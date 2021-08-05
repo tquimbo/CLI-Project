@@ -4,14 +4,14 @@ require 'openssl'
 require 'json'
 require 'pry'
 
-class Restaurant
+class API
 
-   def call(zip_code)
+   def call
 
      
-    url = URI("https://documenu.p.rapidapi.com/restaurants/zip_code/#{zip_code}")
+   #  url = URI("https://documenu.p.rapidapi.com/restaurants/zip_code/#{zip_code}?size=20")
 
-   #  url = URI("https://documenu.p.rapidapi.com/restaurants/zip_code/#{zip_code}?size=20&cuisine=#{cuisine}")
+    url = URI("https://documenu.p.rapidapi.com/restaurants/zip_code/#{zip_code}?size=20&cuisine=#{cuisine}")
 
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
@@ -26,26 +26,33 @@ class Restaurant
     puts response.read_body
     JSON.parse(response.read_body)
 
-binding.pry
-   
-   #   check value of parsed_response here
-
-      # response.each do |c|
-      #    name =  c.text
-      #    type =  c.attr("value")
-      #    Restaurant::Month.new(name, ref)
-      # end
-
-   
+# binding.pry
    end
+
+   def scrape.zip_code
+
+   end
+   
+   def scrape.cuisine
+
+   end
+
+   def scrape.restaurant
+
+   end
+
 
    
 end
 
-puts "Please enter zipcode"
-zip_code = gets.strip
-restaurant = Restaurant.new
-restaurant.call(zip_code)
+# puts "Please enter zipcode"
+# zip_code = gets.strip
+
+# puts "Please enter cuisine"
+# cuisine = gets.strip
+
+# restaurant = Restaurant.new
+# restaurant.call(zip_code)
 
 # puts "Please enter cuisine"
 # cuisine = gets.strip

@@ -6,8 +6,10 @@ require 'pry'
 
 class Restaurant
 
-   def call 
-    url = URI("https://documenu.p.rapidapi.com/restaurants/zip_code/90210?size=30&cuisine=Italian")
+   def call(choice)
+
+     
+    url = URI("https://documenu.p.rapidapi.com/restaurants/zip_code/90210?size=0&cuisine=#{choice}")
 
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
@@ -20,18 +22,26 @@ class Restaurant
     
     response = http.request(request)
     puts response.read_body
+    JSON.parse(response.read_body)
+
+binding.pry
+   
+   #   check value of parsed_response here
+
+      # response.each do |c|
+      #    name =  c.text
+      #    type =  c.attr("value")
+      #    Restaurant::Month.new(name, ref)
+      # end
 
    
-      binding.pry #check value of parsed_response here
-
-      response.each do |c|
-         name =  c.text
-         type =  c.attr("value")
-         Restaurant::Cuisine.new(name, type)
    end
 
    
 end
 
+puts "Please enter cuisine"
+input = gets.strip
 restaurant = Restaurant.new
-restaurant.call
+restaurant.call(input)
+

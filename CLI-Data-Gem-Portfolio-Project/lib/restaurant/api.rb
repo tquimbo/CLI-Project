@@ -6,10 +6,12 @@ require 'pry'
 
 class Restaurant
 
-   def call(choice)
+   def call(zip_code)
 
      
-    url = URI("https://documenu.p.rapidapi.com/restaurants/zip_code/90210?size=0&cuisine=#{choice}")
+    url = URI("https://documenu.p.rapidapi.com/restaurants/zip_code/#{zip_code}")
+
+   #  url = URI("https://documenu.p.rapidapi.com/restaurants/zip_code/#{zip_code}?size=20&cuisine=#{cuisine}")
 
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
@@ -40,8 +42,12 @@ binding.pry
    
 end
 
-puts "Please enter cuisine"
-input = gets.strip
+puts "Please enter zipcode"
+zip_code = gets.strip
 restaurant = Restaurant.new
-restaurant.call(input)
+restaurant.call(zip_code)
 
+# puts "Please enter cuisine"
+# cuisine = gets.strip
+# restaurant = Restaurant.new
+# restaurant.call(zip_code,cuisine)

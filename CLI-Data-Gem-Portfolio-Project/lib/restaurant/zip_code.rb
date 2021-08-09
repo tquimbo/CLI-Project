@@ -16,6 +16,7 @@ class Restaurant::Zip_Code
     end
   
     def self.all
+        Restaurant::API.get_zipcodes if @@all.empty?
       @@all
     end
   

@@ -4,7 +4,7 @@ require 'openssl'
 require 'json'
 require 'pry'
 
-class API
+class Restaurant::API
 
    def call
 
@@ -29,16 +29,16 @@ class API
 # binding.pry
    end
 
-   def scrape.zip_code
+   def get.zip_code
 
       
    end
    
-   def scrape.cuisine
+   def get.cuisine
 
    end
 
-   def scrape.restaurant
+   def get.restaurant
 
    end
 

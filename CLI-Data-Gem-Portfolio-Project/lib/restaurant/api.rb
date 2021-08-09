@@ -4,56 +4,94 @@ require 'openssl'
 require 'json'
 require 'pry'
 
-class Restaurant::API
+class API
 
-   def call
+#    def call(zip_code)
 
      
-   #  url = URI("https://documenu.p.rapidapi.com/restaurants/zip_code/#{zip_code}?size=20")
+#    #  url = URI("https://documenu.p.rapidapi.com/restaurants/zip_code/#{zip_code}?size=20")
 
-    url = URI("https://documenu.p.rapidapi.com/restaurants/zip_code/#{zip_code}?size=20&cuisine=#{cuisine}")
+#     url = URI("https://documenu.p.rapidapi.com/restaurants/zip_code/#{zip_code}?size=20&cuisine=#{cuisine}")
 
-    http = Net::HTTP.new(url.host, url.port)
-    http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+#     http = Net::HTTP.new(url.host, url.port)
+#     http.use_ssl = true
+#     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     
-    request = Net::HTTP::Get.new(url)
-    request["x-api-key"] = 'baf246c932f361ca5a5fda1f4c6cfbdc'
-    request["x-rapidapi-key"] = 'bebaad4ee8mshe771f428751ab9ap18427ajsnb8ac89e572f8'
-    request["x-rapidapi-host"] = 'documenu.p.rapidapi.com'
+#     request = Net::HTTP::Get.new(url)
+#     request["x-api-key"] = 'baf246c932f361ca5a5fda1f4c6cfbdc'
+#     request["x-rapidapi-key"] = 'bebaad4ee8mshe771f428751ab9ap18427ajsnb8ac89e572f8'
+#     request["x-rapidapi-host"] = 'documenu.p.rapidapi.com'
     
-    response = http.request(request)
-    puts response.read_body
-    JSON.parse(response.read_body)
+#     response = http.request(request)
+#     puts response.read_body
+#     JSON.parse(response.read_body)
+    
 
-# binding.pry
-   end
+# # binding.pry
+#    end
 
-   def get.zip_code
+   def get_zip_code(zip_code)
 
+      url = URI("https://documenu.p.rapidapi.com/restaurants/zip_code/#{zip_code}")
+
+      http = Net::HTTP.new(url.host, url.port)
+      http.use_ssl = true
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       
+      request = Net::HTTP::Get.new(url)
+      request["x-api-key"] = 'baf246c932f361ca5a5fda1f4c6cfbdc'
+      request["x-rapidapi-key"] = 'bebaad4ee8mshe771f428751ab9ap18427ajsnb8ac89e572f8'
+      request["x-rapidapi-host"] = 'documenu.p.rapidapi.com'
+      
+      response = http.request(request)
+      puts response.read_body
+      JSON.parse(response.read_body)
+
+      # puts "Please enter zipcode"
+      # zip_code = gets.strip
+
+      # restaurant = API.new
+      # restaurant.call(zip_code) 
+
    end
    
-   def get.cuisine
+   # def get_cuisine(zip_code, cuisine)
 
-   end
+   #    url = URI("https://documenu.p.rapidapi.com/restaurants/zip_code/#{zip_code}?size=20&cuisine=#{cuisine}")
 
-   def get.restaurant
+   #    http = Net::HTTP.new(url.host, url.port)
+   #    http.use_ssl = true
+   #    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+      
+   #    request = Net::HTTP::Get.new(url)
+   #    request["x-api-key"] = 'baf246c932f361ca5a5fda1f4c6cfbdc'
+   #    request["x-rapidapi-key"] = 'bebaad4ee8mshe771f428751ab9ap18427ajsnb8ac89e572f8'
+   #    request["x-rapidapi-host"] = 'documenu.p.rapidapi.com'
+      
+   #    response = http.request(request)
+   #    puts response.read_body
+   #    JSON.parse(response.read_body)
 
-   end
+
+   # end
+
+   # def get.restaurant
+
+   # end
 
 
    
 end
 
-# puts "Please enter zipcode"
-# zip_code = gets.strip
 
 # puts "Please enter cuisine"
 # cuisine = gets.strip
 
-# restaurant = Restaurant.new
-# restaurant.call(zip_code)
+puts "Please enter zipcode"
+zip_code = gets.strip
+
+cuisines = API.new
+cuisines.get_zip_code(zip_code)
 
 # puts "Please enter cuisine"
 # cuisine = gets.strip

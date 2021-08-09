@@ -1,8 +1,15 @@
+
+
+
 class Restaurant::CLI
 
     def call
         welcome
         zipcode
+        get_cuisines
+        list_cuisines
+        get_user_cuisine
+        
         # restaurants
         # menu
     end
@@ -16,57 +23,59 @@ class Restaurant::CLI
 #you gottta send zipcode info to API and the API returns a list of cuisines
 
     def zipcode
-        puts "Please enter your zip code."
-        input = gets.strip
+        puts "Please enter zipcode"
+        zip_code = gets.strip
+        cuisines = Restaurant::API.new
+        cuisines.get_zip_code(zip_code)
     end
 
-    def get_cuisines
-        @cuisines = Restaurant::Cuisines.all
-    end
+    # def get_cuisines
+    #     @cuisines = Restaurant::Cuisines.all
+    # end
 
-    def list_cuisines
-        puts 'Choose a cuisine to see restaurants.'
-        @cuisines.each.with_index(1) do |month, index| 
-          puts "#{index}. #{cuisine.name}"
-        end
-    end
+    # def list_cuisines
+    #     puts 'Choose a cuisine to see restaurants.'
+    #     @cuisines.each.with_index(1) do |month, index| 
+    #       puts "#{index}. #{cuisine.name}"
+    #     end
+    # end
 
-    def get_user_cuisine
-        chosen_cuisine = gets.strip.to_i
-        show_restaurants_for(chosen_cuisine) if valid_input(chosen_cuisine , @cuisine)
-    end 
+    # def get_user_cuisine
+    #     chosen_cuisine = gets.strip.to_i
+    #     show_restaurants_for(chosen_cuisine) if valid_input(chosen_cuisine , @cuisine)
+    # end 
 
-      def valid_input(input, data)
-        input.to_i <= data.length && input.to_i > 0
-      end   
+    #   def valid_input(input, data)
+    #     input.to_i <= data.length && input.to_i > 0
+    #   end   
 
-      def show_restauraums_for(chosen_cuisines)
-        cuisine = @cuisine[chosen_cuisine - 1]
-        cuisine.get_restaurants
-        puts "Here are restaurants for #{cuisine.name}"
-        cuisine.restaurant.each.with_index(1) do |cuisine, i|
-          puts "#{i}. #{restaurant.name}"
-        end
-        get_user_restaurant(cuisine)
-      end
+    #   def show_restauraunts_for(chosen_cuisines)
+    #     cuisine = @cuisine[chosen_cuisine - 1]
+    #     cuisine.get_restaurants
+    #     puts "Here are restaurants for #{cuisine.name}"
+    #     cuisine.restaurant.each.with_index(1) do |cuisine, i|
+    #       puts "#{i}. #{restaurant.name}"
+    #     end
+    #     get_user_restaurant(cuisine)
+    #   end
     
    
 #enter your prefeerred cuisine to get a list of restaurants in that cuisine
 #you gottta send cuisine info to API and the API returns a list of restaurants 
 
-    def get_user_restaurant_info(cuisne)
-        puts "Please enter the restaurant you want to get more information."
-        input = gets.strip
-        restaurant = cuisine.restaurants[input.to_i - 1]
-        restaurant.get_restaurant_details
-        show_restaurant_details(restaurant)
-    end
+    # def get_user_restaurant_info(cuisne)
+    #     puts "Please enter the restaurant you want to get more information."
+    #     input = gets.strip
+    #     restaurant = cuisine.restaurants[input.to_i - 1]
+    #     restaurant.get_restaurant_details
+    #     show_restaurant_details(restaurant)
+    # end
 
   
-    def show_restaurant_details(restaurant)
-        puts restaurant.name
-        restaurant.key_info.each {|i| puts "- #{i}"}
-    end 
+    # def show_restaurant_details(restaurant)
+    #     puts restaurant.name
+    #     restaurant.key_info.each {|i| puts "- #{i}"}
+    # end 
 
     # def list_restaurants
     #     puts 'Choose a restaurant to get more information.'

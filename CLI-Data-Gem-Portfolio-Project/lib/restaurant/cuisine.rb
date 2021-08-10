@@ -1,4 +1,4 @@
-class Restaurant::Cuisine
+class NearbyRestaurants::Cuisine
 
     attr_accessor :name, :restaurants, :id
     @@all = []
@@ -11,17 +11,16 @@ class Restaurant::Cuisine
     end
 
     def self.all
-        Restaurants::API.get_cuisines if @@all.empty?
+        NearbyRestaurants::API.get_cuisines if @@all.empty?
         @@all
       end
       
-      def get_events
-        EdenEvents::Scraper.scrape_events(self) if @events.empty?
+      def get_restaurants
+        NearbyRestaurants::API.get_restaurants(self) if @@all.empty?
       end
       
     def save
       @@all << self
     end
-
   
   end

@@ -4,10 +4,10 @@ require 'openssl'
 require 'json'
 require 'pry'
 
-class CLI
+class NearbyRestaurants::CLI
 
     def call
-        welcome
+       welcome
         zipcode
         # get_cuisines
         # list_cuisines
@@ -25,7 +25,11 @@ class CLI
 # you gottta send zipcode info to API and the API returns a list of cuisines
 
     def zipcode
-         CLI.get_zip_code(zip_code)
+        puts "Please enter zipcode to get a list of cuisnes in your area."
+        zip_code = gets.strip
+       
+        cuisines = Restaurant::API.new
+        cuisines.call(zip_code, cuisine)
     end
 
     # def get_cuisines
@@ -100,5 +104,10 @@ class CLI
 
 end
 
+# puts "Please enter zipcode and cuisine to get relevant restaurants."
+# zip_code = gets.strip
+# cuisine = gets.strip
+
 cuisines = CLI.new
-cuisines.get_zip_code(zip_code)
+cuisines.call
+# cuisines.call(zip_code, cuisine)

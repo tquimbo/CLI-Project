@@ -1,14 +1,17 @@
+require 'uri'
+require 'net/http'
+require 'openssl'
+require 'json'
+require 'pry'
 
-
-
-class Restaurant::CLI
+class CLI
 
     def call
         welcome
         zipcode
-        get_cuisines
-        list_cuisines
-        get_user_cuisine
+        # get_cuisines
+        # list_cuisines
+        # get_user_cuisine
         
         # restaurants
         # menu
@@ -18,15 +21,11 @@ class Restaurant::CLI
         puts "Welcome to the Discover Restaurants CLI App!"
     end  
 
-
-#enter your zipcode to get a list of cuisines in that zipecode
-#you gottta send zipcode info to API and the API returns a list of cuisines
+# enter your zipcode to get a list of cuisines in that zipcode
+# you gottta send zipcode info to API and the API returns a list of cuisines
 
     def zipcode
-        puts "Please enter zipcode"
-        zip_code = gets.strip
-        cuisines = Restaurant::API.new
-        cuisines.get_zip_code(zip_code)
+         CLI.get_zip_code(zip_code)
     end
 
     # def get_cuisines
@@ -100,3 +99,6 @@ class Restaurant::CLI
 # end
 
 end
+
+cuisines = CLI.new
+cuisines.get_zip_code(zip_code)

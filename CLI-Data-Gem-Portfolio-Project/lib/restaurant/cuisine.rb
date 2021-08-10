@@ -11,7 +11,7 @@ class Restaurant::Cuisine
     end
 
     def self.all
-        EdenEvents::Scraper.scrape_months if @@all.empty?
+        Restaurants::API.get_cuisines if @@all.empty?
         @@all
       end
       
@@ -19,8 +19,6 @@ class Restaurant::Cuisine
         EdenEvents::Scraper.scrape_events(self) if @events.empty?
       end
       
-
-
     def save
       @@all << self
     end

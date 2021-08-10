@@ -30,9 +30,9 @@ class API
 # # binding.pry
 #    end
 
-   def get_zip_code(zip_code)
+   def call(zip_code, cuisine)
 
-      url = URI("https://documenu.p.rapidapi.com/restaurants/zip_code/#{zip_code}")
+      url = URI("https://documenu.p.rapidapi.com/restaurants/zip_code/#{zip_code}?size=20&cuisine=#{cuisine}")
 
       http = Net::HTTP.new(url.host, url.port)
       http.use_ssl = true
@@ -87,11 +87,12 @@ end
 # puts "Please enter cuisine"
 # cuisine = gets.strip
 
-puts "Please enter zipcode"
+puts "Please enter zipcode and cuisine to get relevant restaurants."
 zip_code = gets.strip
+cuisine = gets.strip
 
 cuisines = API.new
-cuisines.get_zip_code(zip_code)
+cuisines.call(zip_code, cuisine)
 
 # puts "Please enter cuisine"
 # cuisine = gets.strip

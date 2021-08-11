@@ -4,7 +4,7 @@ require 'openssl'
 require 'json'
 require 'pry'
 
-class NearbyRestaurants::API
+class API
 
 #    def call(zip_code)
 
@@ -45,10 +45,11 @@ class NearbyRestaurants::API
       
       response = http.request(request)
       puts response.read_body
-      JSON.parse(response.read_body)
+      data = JSON.parse(response.read_body)
 
-      binding.pry
 
+     
+   
       # API.new
       # cuisines.call(zip_code, cuisine)
 
@@ -94,12 +95,12 @@ end
 # puts "Please enter cuisine"
 # cuisine = gets.strip
 
-# puts "Please enter zipcode and cuisine to get relevant restaurants."
-# zip_code = gets.strip
-# cuisine = gets.strip
+puts "Please enter zipcode and cuisine to get relevant restaurants."
+zip_code = gets.strip
+cuisine = gets.strip
 
-# Restaurant = API.new
-# Restaurant.call(zip_code, cuisine)
+restaurant = API.new
+restaurant.call(zip_code, cuisine)
 
 # puts "Please enter cuisine"
 # cuisine = gets.strip

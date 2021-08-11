@@ -8,6 +8,7 @@ class NearbyRestaurants::CLI
 
     def call
        welcome
+       while @input != "reset"
         zipcode
         # get_cuisines
         # list_cuisines
@@ -19,6 +20,7 @@ class NearbyRestaurants::CLI
 
     def welcome
         puts "Welcome to the Discover Restaurants CLI App!"
+        self.zip_code  
     end  
 
 # enter your zipcode to get a list of cuisines in that zipcode
@@ -27,40 +29,42 @@ class NearbyRestaurants::CLI
     def zipcode
         puts "Please enter zipcode to get a list of cuisnes in your area."
         zip_code = gets.strip
+        API.call(zip_code, cuisine)
+
        
-        cuisines = Restaurant::API.new
-        cuisines.call(zip_code, cuisine)
+        # cuisines = Restaurant::API.new
+        # cuisines.call(zip_code, cuisine)
     end
 
-    # def get_cuisines
-    #     @cuisines = Restaurant::Cuisines.all
-    # end
+    def get_cuisines
+        @cuisines = Restaurant::Cuisines.all
+    end
 
-    # def list_cuisines
-    #     puts 'Choose a cuisine to see restaurants.'
-    #     @cuisines.each.with_index(1) do |month, index| 
-    #       puts "#{index}. #{cuisine.name}"
-    #     end
-    # end
+    def list_cuisines
+        puts 'Choose a cuisine to see restaurants.'
+        @cuisines.each.with_index(1) do |month, index| 
+          puts "#{index}. #{cuisine.name}"
+        end
+    end
 
-    # def get_user_cuisine
-    #     chosen_cuisine = gets.strip.to_i
-    #     show_restaurants_for(chosen_cuisine) if valid_input(chosen_cuisine , @cuisine)
-    # end 
+    def get_user_cuisine
+        chosen_cuisine = gets.strip.to_i
+        show_restaurants_for(chosen_cuisine) if valid_input(chosen_cuisine , @cuisine)
+    end 
 
-    #   def valid_input(input, data)
-    #     input.to_i <= data.length && input.to_i > 0
-    #   end   
+      def valid_input(input, data)
+        input.to_i <= data.length && input.to_i > 0
+      end   
 
-    #   def show_restauraunts_for(chosen_cuisines)
-    #     cuisine = @cuisine[chosen_cuisine - 1]
-    #     cuisine.get_restaurants
-    #     puts "Here are restaurants for #{cuisine.name}"
-    #     cuisine.restaurant.each.with_index(1) do |cuisine, i|
-    #       puts "#{i}. #{restaurant.name}"
-    #     end
-    #     get_user_restaurant(cuisine)
-    #   end
+      def show_restauraunts_for(chosen_cuisines)
+        cuisine = @cuisine[chosen_cuisine - 1]
+        cuisine.get_restaurants
+        puts "Here are restaurants for #{cuisine.name}"
+        cuisine.restaurant.each.with_index(1) do |cuisine, i|
+          puts "#{i}. #{restaurant.name}"
+        end
+        get_user_restaurant(cuisine)
+      end
     
    
 #enter your prefeerred cuisine to get a list of restaurants in that cuisine

@@ -9,5 +9,5 @@ require './lib/restaurant/cuisine'
 require './lib/restaurant/restaurants'
 
 
-Restaurant::CLI.new.call
+NearbyRestaurants::CLI.new.call
 

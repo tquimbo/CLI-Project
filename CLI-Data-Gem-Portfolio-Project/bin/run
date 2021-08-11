@@ -1,12 +1,13 @@
 !/usr/bin/env ruby
+require 'uri'
+require 'net/http'
+require 'openssl'
+require 'json'
+require 'pry'
+
 
 require "bundler/setup"
-require 'restaurant'
-require './lib/restaurant'
-require './lib/restaurant/cli'
-require './lib/restaurant/api'
-require './lib/restaurant/cuisine'
-require './lib/restaurant/restaurants'
+
 
 
 NearbyRestaurants::CLI.new.call

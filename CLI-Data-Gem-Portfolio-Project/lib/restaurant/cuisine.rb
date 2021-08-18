@@ -1,4 +1,4 @@
-class NearbyRestaurants::Cuisine
+class Cuisine
 
     attr_accessor :name, :restaurants, :id
     @@all = []

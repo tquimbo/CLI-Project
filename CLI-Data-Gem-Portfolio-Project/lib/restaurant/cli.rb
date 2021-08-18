@@ -4,7 +4,7 @@ require 'openssl'
 require 'json'
 require 'pry'
 
-class NearbyRestaurants::CLI
+class CLI
 
     def call
        welcome
@@ -65,6 +65,8 @@ class NearbyRestaurants::CLI
         end
         get_user_restaurant(cuisine)
       end
+
+      def 
     
    
 #enter your prefeerred cuisine to get a list of restaurants in that cuisine

@@ -87,10 +87,11 @@ class API
       # @data["data"][0]["restaurant_name"] 
 
   
-      binding.pry
 
-      restaurant_hash = {restaurant_name: ["data"][0]["restaurant_name"], restaurant_phone: ["data"][0]["restaurant_phone"], restaurant_website: ["data"][0]["restaurant_website"], hours: ["data"][0]["hours"], price_range: ["data"][0]["price_range"]}
-      # Restaurant.new(restaurant_hash)
+      restaurant_hash = {restaurant_name: restaurant_data["data"][0]["restaurant_name"], restaurant_phone: restaurant_data["data"][0]["restaurant_phone"], restaurant_website: restaurant_data["data"][0]["restaurant_website"], hours: restaurant_data["data"][0]["hours"], price_range: restaurant_data["data"][0]["price_range"]}
+      
+      binding.pry
+      #Restaurant.new(restaurant_hash)
       # Restaurants.new(restaurant_hash)
       
 

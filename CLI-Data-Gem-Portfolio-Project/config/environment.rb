@@ -2,13 +2,10 @@
 require 'pry' #just require for external libs and its an absolute path
 require 'httparty' 
 
-# require_relative('../config/enviroment')
-# require_relative('./lib/restaurant')
-# require_relative('./lib/restaurant/cli')
-# require_relative('./lib/restaurant/api')  #for files inside our directory #. goes up a spot (config) #.. goes up to top of cli
-# require_relative('./lib/restaurant/cuisine')
-# require_relative('./lib/restaurant/restaurants')
+require('./lib/restaurant/cli.rb')
+require('./lib/restaurant/api.rb')  #for files inside our directory #. goes up a spot (config) #.. goes up to top of cli
+require('./lib/restaurant/cuisine.rb')
+require('./lib/restaurant/restaurants.rb')
+require('./lib/restaurant/version.rb')
 
-
-# require_relative('.. /lib/location')
 

@@ -89,6 +89,8 @@ class API
   
 
       restaurant_hash = {restaurant_name: restaurant_data["data"][0]["restaurant_name"], restaurant_phone: restaurant_data["data"][0]["restaurant_phone"], restaurant_website: restaurant_data["data"][0]["restaurant_website"], hours: restaurant_data["data"][0]["hours"], price_range: restaurant_data["data"][0]["price_range"]}
+      Restaurants.new(restaurant_hash)
+      
       
       binding.pry
       #Restaurant.new(restaurant_hash)
@@ -119,6 +121,8 @@ end
 puts "Please enter zipcode and cuisine to get relevant restaurants."
 zip_code = gets.strip
 cuisine = gets.strip
+
+
 
 cuisines = API.new
 # cuisines.zip_call(zip_code)

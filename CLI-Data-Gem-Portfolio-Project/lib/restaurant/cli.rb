@@ -46,6 +46,7 @@ class CLI
       # if !new_restaurants
       #   puts "That zip code or cuisine was invalid."
       # end
+      self.restaurant_options(new_restaurant)
     end 
 
 
@@ -62,34 +63,50 @@ class CLI
 
 
 
-# def restaurant_options(location)
-#   puts "Please choose from the following list for restaurant information for #{restaurant.name}"
-#   puts "1. Restaurant Name"
-#   puts "2. Restaurant Phone"
-#   puts "3. Restaurant Website"
-#   puts "4. Hours"
-#   puts "5. Price Range"
-#   self.user_selection(location)
-# end
+def restaurant_options(restaurant)
+  puts "Please choose from the following list for restaurant information for #{restaurant.name}."
+  puts "1. Restaurant Phone"
+  puts "2. Restaurant Website"
+  puts "3. Hours"
+  puts "4. Price Range"
+  self.user_selection(restaurant)
+end
 
-# def user_selection(location)
+# def user_selection(restaurant)
 #   input = gets.strip
 #   if input == "1" #|| input.include?("wind") || input.include?("Wind") || input.include?("speed") || input.include?("Speed")
-#     puts "The restaurant name in #{location.name} is #{location.wind_speed}"
+#     puts "The restaurant phone in #{restaurant.name} is #{restaurant.phone}"
 #   elsif input == "2"
-#     puts "The restaurant phone #{location.name} is #{location.temp}"
+#     puts "The restaurant website #{restaurant.name} is #{restaurant.website}"
 #   elsif input == "3"
-#     puts "The restaurant website #{location.name} it feels like #{location.feels_like}"
+#     puts "The restaurant hours #{restaurant.name} it feels like #{restaurant.hours}"
 #   elsif input == "4"
-#     puts "The restaurant hours are #{location.name} is #{location.cloud_cover}"
-#   elsif input == "5"
-#     puts "The restaurant price range is"
+#     puts "The restaurant price range are #{restaurant.name} is #{restaurant.price_range}"
 #   else
 #     puts "That selection was invalid."
-#     self.weather_options(location)
+#     self.restaurant_options(restaurant)
 #   end
 #   self.main_menu
 # end
+
+# def main_menu
+#   puts "To see another restaurant, please enter 1"
+#   puts "To exit the program please enter 2"
+#   input = gets.strip
+#   if input == "1"
+#       self.prompt_for_zip
+#   elsif input == "2"
+#       self.exit_program
+#   else
+#     puts "Invalid selection"
+#     self.main_menu
+#   end
+# end
+
+# def exit_program
+#   abort("Thanks for using the weather app!")
+# end
+
       
 #     end
 

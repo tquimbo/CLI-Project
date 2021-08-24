@@ -27,16 +27,27 @@ class CLI
 
     def get_restaurants
 
-      new_restaurants = false
+      # new_restaurants = false
 
-      # new_location = false
+      # # new_location = false
 
-      while !new_restaurants
+      # while !new_restaurants
       puts "Please enter zipcode and cuisine to get relevant restaurants."
       zip_code = gets.strip
       cuisine = gets.strip
 
-      new_restaurants = Restaurants.self.find_by_zip_cuisine(zip_code, cuisine) || API.call(zip_code, cuisine)
+      API.call(zip_code, cuisine)
+
+      # new_restaurants = Restaurants.find_by_zip_cuisine(zip_code, cuisine) || API.call(zip_code, cuisine)
+
+      # new_restaurants = API.call(zip_code, cuisine)
+
+
+      # if !new_restaurants
+      #   puts "That zip code or cuisine was invalid."
+      # end
+    end 
+
 
     #   cuisines = API.new
     # # cuisines.zip_call(zip_code)
@@ -48,7 +59,7 @@ class CLI
   #     end
   # end
   # self.restaurant_options(new_location)
-end
+
 
 
 # def restaurant_options(location)
@@ -153,7 +164,7 @@ end
 # #         while input !="exit"
 # #     end
 # # end
-end
+
 end
 
 # puts "Please enter zipcode and cuisine to get relevant restaurants."

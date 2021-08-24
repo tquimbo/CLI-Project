@@ -62,7 +62,7 @@ class API
    
 
 
-   def call(zip_code, cuisine)
+   def self.call(zip_code, cuisine)
       
       
       url = URI("https://documenu.p.rapidapi.com/restaurants/zip_code/#{zip_code}?size=20&cuisine=#{cuisine}")
@@ -92,7 +92,7 @@ class API
       Restaurants.new(restaurant_hash)
       
       
-      binding.pry
+    
       #Restaurant.new(restaurant_hash)
       # Restaurants.new(restaurant_hash)
       
@@ -118,12 +118,12 @@ end
 # 5. 
 
 
-puts "Please enter zipcode and cuisine to get relevant restaurants."
-zip_code = gets.strip
-cuisine = gets.strip
+# puts "Please enter zipcode and cuisine to get relevant restaurants."
+# zip_code = gets.strip
+# cuisine = gets.strip
 
 
 
-cuisines = API.new
-# cuisines.zip_call(zip_code)
-cuisines.call(zip_code, cuisine)
+# cuisines = API.new
+# # cuisines.zip_call(zip_code)
+# cuisines.call(zip_code, cuisine)

@@ -36,7 +36,7 @@ class CLI
       zip_code = gets.strip
       cuisine = gets.strip
 
-      API.call(zip_code, cuisine)
+      new_restaurant = API.call(zip_code, cuisine) 
 
       # new_restaurants = Restaurants.find_by_zip_cuisine(zip_code, cuisine) || API.call(zip_code, cuisine)
 

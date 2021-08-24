@@ -75,7 +75,7 @@ def user_selection(restaurant)
   if input == "1" #|| input.include?("wind") || input.include?("Wind") || input.include?("speed") || input.include?("Speed")
     puts "The restaurant phone in #{restaurant.name} is #{restaurant.restaurant_phone}"
   elsif input == "2"
-    puts "The restaurant website #{restaurant.name} is #{restaurant.website}"
+    puts "The restaurant website #{restaurant.name} is #{restaurant.restaurant_website}"
   elsif input == "3"
     puts "The restaurant hours #{restaurant.name} is #{restaurant.hours}"
   elsif input == "4"
@@ -84,26 +84,26 @@ def user_selection(restaurant)
     puts "That selection was invalid."
     self.restaurant_options(restaurant)
   end
-  # self.main_menu
+  self.main_menu
 end
 
-# def main_menu
-#   puts "To see another restaurant, please enter 1"
-#   puts "To exit the program please enter 2"
-#   input = gets.strip
-#   if input == "1"
-#       self.prompt_for_zip
-#   elsif input == "2"
-#       self.exit_program
-#   else
-#     puts "Invalid selection"
-#     self.main_menu
-#   end
-# end
+def main_menu
+  puts "To see another restaurant, please enter 1"
+  puts "To exit the program please enter 2"
+  input = gets.strip
+  if input == "1"
+      self.get_restaurants
+  elsif input == "2"
+      self.exit_program
+  else
+    puts "Invalid selection"
+    self.main_menu
+  end
+end
 
-# def exit_program
-#   abort("Thanks for using the weather app!")
-# end
+def exit_program
+  abort("Thanks for using the Discover Restaurants CLI  app!")
+end
 
       
 #     end

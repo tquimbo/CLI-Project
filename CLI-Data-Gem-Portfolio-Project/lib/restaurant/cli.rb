@@ -61,8 +61,6 @@ class CLI
   # end
   # self.restaurant_options(new_location)
 
-
-
 def restaurant_options(restaurant)
   puts "Please choose from the following list for restaurant information for #{restaurant.name}."
   puts "1. Restaurant Phone"
@@ -72,22 +70,22 @@ def restaurant_options(restaurant)
   self.user_selection(restaurant)
 end
 
-# def user_selection(restaurant)
-#   input = gets.strip
-#   if input == "1" #|| input.include?("wind") || input.include?("Wind") || input.include?("speed") || input.include?("Speed")
-#     puts "The restaurant phone in #{restaurant.name} is #{restaurant.phone}"
-#   elsif input == "2"
-#     puts "The restaurant website #{restaurant.name} is #{restaurant.website}"
-#   elsif input == "3"
-#     puts "The restaurant hours #{restaurant.name} it feels like #{restaurant.hours}"
-#   elsif input == "4"
-#     puts "The restaurant price range are #{restaurant.name} is #{restaurant.price_range}"
-#   else
-#     puts "That selection was invalid."
-#     self.restaurant_options(restaurant)
-#   end
-#   self.main_menu
-# end
+def user_selection(restaurant)
+  input = gets.strip
+  if input == "1" #|| input.include?("wind") || input.include?("Wind") || input.include?("speed") || input.include?("Speed")
+    puts "The restaurant phone in #{restaurant.name} is #{restaurant.restaurant_phone}"
+  elsif input == "2"
+    puts "The restaurant website #{restaurant.name} is #{restaurant.website}"
+  elsif input == "3"
+    puts "The restaurant hours #{restaurant.name} is #{restaurant.hours}"
+  elsif input == "4"
+    puts "The restaurant price range are #{restaurant.name} is #{restaurant.price_range}"
+  else
+    puts "That selection was invalid."
+    self.restaurant_options(restaurant)
+  end
+  # self.main_menu
+end
 
 # def main_menu
 #   puts "To see another restaurant, please enter 1"

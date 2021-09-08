@@ -47,7 +47,7 @@ class CLI
       #   puts "That zip code or cuisine was invalid."
       # end
       #self.print_restaurants(restaurant)
-      self.new_restaurant_hash(new_restaurant)
+      # self.new_restaurant_hash(new_restaurant)
     end 
 
     # def new_restaurant_hash(new_restaurant)

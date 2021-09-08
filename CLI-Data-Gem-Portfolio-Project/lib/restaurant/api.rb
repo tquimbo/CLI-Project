@@ -23,10 +23,17 @@ class API
       
       response = http.request(request)
       puts response.read_body
-      restaurant_data = JSON.parse(response.read_body)  
+      restaurant_data = JSON.parse(response.read_body)["data"][0]
+      
 
-      restaurant_hash = {restaurant_name: restaurant_data["data"][0]["restaurant_name"], restaurant_phone: restaurant_data["data"][0]["restaurant_phone"], restaurant_website: restaurant_data["data"][0]["restaurant_website"], hours: restaurant_data["data"][0]["hours"], price_range: restaurant_data["data"][0]["price_range"]}
-      Restaurants.new(restaurant_hash)
+      restaurant_data.each do |r|
+         Restaurants.new(restaurant_name: restaurant_data["restaurant_name"], restaurant_phone: restaurant_data["restaurant_phone"], restaurant_website: restaurant_data["restaurant_website"], hours: restaurant_data["hours"], price_range: restaurant_data["price_range"])
+
+      end   
+ 
+      #restaurant_hash = {restaurant_name: restaurant_data["data"][0]["restaurant_name"], restaurant_phone: restaurant_data["data"][0]["restaurant_phone"], restaurant_website: restaurant_data["data"][0]["restaurant_website"], hours: restaurant_data["data"][0]["hours"], price_range: restaurant_data["data"][0]["price_range"]}
+      #Restaurants.new(restaurant_hash)
+   
       
    end
    

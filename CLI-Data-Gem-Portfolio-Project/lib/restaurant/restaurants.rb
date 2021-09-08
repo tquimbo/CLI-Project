@@ -13,14 +13,27 @@ class Restaurants
   @@all = []
 
 
+  # def initialize(hash)
+  #   # call attr_accessor in here
+  #     hash.each do |key, value|
+  #         self.class.attr_accessor(key)
+  #         self.send("#{key}=", value) if self.respond_to?("#{key}=")
+  #     end
+  #     @@all << self
+  #     # self.all << self
+  # end
+
   def initialize(hash)
-    # call attr_accessor in here
-      hash.each do |key, value|
-          self.class.attr_accessor(key)
-          self.send("#{key}=", value) if self.respond_to?("#{key}=")
-      end
-      @@all << self
-      # self.all << self
+    # binding.pry
+    hash.each do |k, v|
+      self.send("#{k}=", v) #if self.respond_to?("#{k}=")
+    end
+    @@all << self
+  end
+
+  def self.find_by_name(name)
+    self.all.each {|r| r.restaurant_name == name}
+    # binding.pry
   end
 
   def self.all

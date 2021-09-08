@@ -3,6 +3,7 @@ require 'net/http'
 require 'openssl'
 require 'json'
 require 'pry'
+
 class API
 
    def self.call(zip_code, cuisine)
@@ -26,9 +27,9 @@ class API
 
       restaurant_hash = {restaurant_name: restaurant_data["data"][0]["restaurant_name"], restaurant_phone: restaurant_data["data"][0]["restaurant_phone"], restaurant_website: restaurant_data["data"][0]["restaurant_website"], hours: restaurant_data["data"][0]["hours"], price_range: restaurant_data["data"][0]["price_range"]}
       Restaurants.new(restaurant_hash)
+      
    end
    
 
    
 end
-

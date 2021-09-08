@@ -9,7 +9,7 @@ class CLI
     def call
        welcome
        get_restaurants
-      #  while @input != "reset"
+      # while @input != "reset"
         # get_cuisines
         # list_cuisines
         # get_user_cuisine
@@ -36,9 +36,9 @@ class CLI
       zip_code = gets.strip
       cuisine = gets.strip
 
-      new_restaurant = API.call(zip_code, cuisine) 
+      @new_restaurant = API.call(zip_code, cuisine) 
 
-      # new_restaurants = Restaurants.find_by_zip_cuisine(zip_code, cuisine) || API.call(zip_code, cuisine)
+      #new_restaurants = Restaurants.find_by_zip_cuisine(zip_code, cuisine) || API.call(zip_code, cuisine)
 
       # new_restaurants = API.call(zip_code, cuisine)
 
@@ -46,8 +46,16 @@ class CLI
       # if !new_restaurants
       #   puts "That zip code or cuisine was invalid."
       # end
-      self.restaurant_options(new_restaurant)
+      #self.print_restaurants(restaurant)
+      self.new_restaurant_hash(new_restaurant)
     end 
+
+    # def new_restaurant_hash(new_restaurant)
+
+    #   restaurant_hash = {restaurant_name: restaurant_data["data"][0]["restaurant_name"], restaurant_phone: restaurant_data["data"][0]["restaurant_phone"], restaurant_website: restaurant_data["data"][0]["restaurant_website"], hours: restaurant_data["data"][0]["hours"], price_range: restaurant_data["data"][0]["price_range"]}
+    #   Restaurants.new(restaurant_hash)
+
+    # end
 
 
     #   cuisines = API.new
@@ -61,49 +69,57 @@ class CLI
   # end
   # self.restaurant_options(new_location)
 
-def restaurant_options(restaurant)
-  puts "Please choose from the following list for restaurant information for #{restaurant.name}."
-  puts "1. Restaurant Phone"
-  puts "2. Restaurant Website"
-  puts "3. Hours"
-  puts "4. Price Range"
-  self.user_selection(restaurant)
-end
+  # def print_restaurants(restaurant)
+  #   binding.pry
+  #   @new_restaurant.each_with_index do |r, i|
+  #     puts "#{i}. #{r.restaurant_name}"
+  #   end
+  # end
 
-def user_selection(restaurant)
-  input = gets.strip
-  if input == "1" #|| input.include?("wind") || input.include?("Wind") || input.include?("speed") || input.include?("Speed")
-    puts "The restaurant phone in #{restaurant.name} is #{restaurant.restaurant_phone}"
-  elsif input == "2"
-    puts "The restaurant website #{restaurant.name} is #{restaurant.restaurant_website}"
-  elsif input == "3"
-    puts "The restaurant hours #{restaurant.name} is #{restaurant.hours}"
-  elsif input == "4"
-    puts "The restaurant price range are #{restaurant.name} is #{restaurant.price_range}"
-  else
-    puts "That selection was invalid."
-    self.restaurant_options(restaurant)
-  end
-  self.main_menu
-end
 
-def main_menu
-  puts "To see another restaurant, please enter 1"
-  puts "To exit the program please enter 2"
-  input = gets.strip
-  if input == "1"
-      self.get_restaurants
-  elsif input == "2"
-      self.exit_program
-  else
-    puts "Invalid selection"
-    self.main_menu
-  end
-end
+# def restaurant_options(restaurant)
+#   puts "Please choose from the following list for restaurant information for #{restaurant.name}."
+#   puts "1. Restaurant Phone"
+#   puts "2. Restaurant Website"
+#   puts "3. Hours"
+#   puts "4. Price Range"
+#   self.user_selection(restaurant)
+# end
 
-def exit_program
-  abort("Thanks for using the Discover Restaurants CLI  app!")
-end
+# def user_selection(restaurant)
+#   input = gets.strip
+#   if input == "1" #|| input.include?("wind") || input.include?("Wind") || input.include?("speed") || input.include?("Speed")
+#     puts "The restaurant phone in #{restaurant.name} is #{restaurant.restaurant_phone}"
+#   elsif input == "2"
+#     puts "The restaurant website #{restaurant.name} is #{restaurant.restaurant_website}"
+#   elsif input == "3"
+#     puts "The restaurant hours #{restaurant.name} is #{restaurant.hours}"
+#   elsif input == "4"
+#     puts "The restaurant price range are #{restaurant.name} is #{restaurant.price_range}"
+#   else
+#     puts "That selection was invalid."
+#     self.restaurant_options(restaurant)
+#   end
+#   self.main_menu
+# end
+
+# def main_menu
+#   puts "To see another restaurant, please enter 1"
+#   puts "To exit the program please enter 2"
+#   input = gets.strip
+#   if input == "1"
+#       self.get_restaurants
+#   elsif input == "2"
+#       self.exit_program
+#   else
+#     puts "Invalid selection"
+#     self.main_menu
+#   end
+# end
+
+# def exit_program
+#   abort("Thanks for using the Discover Restaurants CLI  app!")
+# end
 
       
 #     end

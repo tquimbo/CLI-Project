@@ -9,6 +9,11 @@ class CLI
     def call
        welcome
        get_restaurants
+       
+    
+
+       #print_restaurants
+
       # while @input != "reset"
         # get_cuisines
         # list_cuisines
@@ -26,7 +31,7 @@ class CLI
 # you gottta send zipcode info to API and the API returns a list of cuisines
 
     def get_restaurants
-
+     # 
       # new_restaurants = false
 
       # # new_location = false
@@ -36,20 +41,28 @@ class CLI
       zip_code = gets.strip
       cuisine = gets.strip
 
-      @new_restaurant = API.call(zip_code, cuisine) 
+      @new_restaurants = API.call(zip_code, cuisine)
+
+      @new_restaurants.each_with_index do |r, i|
+      puts "#{i}. #{r.restaurant_name}"
+      end
+    end
+
+
+      # self.print_restaurants(zip_code, cuisine)
+
+      #@new_restaurant = API.call(zip_code, cuisine) 
 
       #new_restaurants = Restaurants.find_by_zip_cuisine(zip_code, cuisine) || API.call(zip_code, cuisine)
 
-      # new_restaurants = API.call(zip_code, cuisine)
 
 
       # if !new_restaurants
       #   puts "That zip code or cuisine was invalid."
       # end
-      #self.print_restaurants(restaurant)
+      #self.print_restaurants(@new_restaurant)
       # self.new_restaurant_hash(new_restaurant)
-    end 
-
+    
     # def new_restaurant_hash(new_restaurant)
 
     #   restaurant_hash = {restaurant_name: restaurant_data["data"][0]["restaurant_name"], restaurant_phone: restaurant_data["data"][0]["restaurant_phone"], restaurant_website: restaurant_data["data"][0]["restaurant_website"], hours: restaurant_data["data"][0]["hours"], price_range: restaurant_data["data"][0]["price_range"]}
@@ -69,9 +82,8 @@ class CLI
   # end
   # self.restaurant_options(new_location)
 
-  # def print_restaurants(restaurant)
-  #   binding.pry
-  #   @new_restaurant.each_with_index do |r, i|
+  # def self.print_restaurants(zip_code, cuisine)
+  #   new_restaurants.each_with_index do |r, i|
   #     puts "#{i}. #{r.restaurant_name}"
   #   end
   # end

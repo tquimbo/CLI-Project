@@ -32,7 +32,7 @@ class Restaurants
   end
 
   def self.find_by_name(name)
-    self.all.each {|r| r.restaurant_name == name}
+    self.all.each {|r| r.restaurant_name == name}["data"][0]
     # binding.pry
   end
 

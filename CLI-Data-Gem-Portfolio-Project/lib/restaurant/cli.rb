@@ -43,9 +43,20 @@ class CLI
 
       @new_restaurants = API.call(zip_code, cuisine)
 
-      @new_restaurants.each_with_index do |r, i|
-      puts "#{i}. #{r.restaurant_name}"
-      end
+      
+      puts @new_restaurants["restaurant_name"]
+
+
+     
+  
+      # binding.pry
+
+      # @new_restaurants.each_with_index do |r, i|
+      # puts "#{i}. #{r.name}"
+
+
+
+    
     end
 
 

@@ -43,8 +43,7 @@ class CLI
 
       @new_restaurants = API.call(zip_code, cuisine)
 
-  
-      @new_restaurants["restaurant_name"][0]
+    
 
 
      

@@ -42,7 +42,8 @@ class CLI
       cuisine = gets.strip
 
 
-      @new_restaurants = API.call(zip_code, cuisine)
+      @new_restaurants["data"] = API.call(zip_code, cuisine)
+    
 
       binding.pry
 

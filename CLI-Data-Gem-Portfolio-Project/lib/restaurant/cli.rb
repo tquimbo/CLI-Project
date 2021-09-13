@@ -25,28 +25,41 @@ class CLI
 
     def welcome
         puts "Welcome to the Discover Restaurants CLI App!"
+
     end  
 
 # enter your zipcode to get a list of cuisines in that zipcode
 # you gottta send zipcode info to API and the API returns a list of cuisines
 
     def get_restaurants
-     # 
-      # new_restaurants = false
+    
+      @new_restaurants = false
 
-      # # new_location = false
-
-      # while !new_restaurants
+      while !@new_restaurants
       puts "Please enter zipcode and cuisine to get relevant restaurants."
       zip_code = gets.strip
       cuisine = gets.strip
 
+
       @new_restaurants = API.call(zip_code, cuisine)
+
+
+      if !@new_restaurants
+        puts "That zip code or cuisine was invalid."
+      end
+    end
+
+    # Restaurants.each.with_index(1) do |r, i|
+    #   puts "#{i}. #{r.restaurant_name}."
+    # end
+
+
+
+
 
     
 
 
-     
   
       # binding.pry
 
@@ -57,6 +70,15 @@ class CLI
 
     
     end
+
+    def self.print_restaurants(zip_code, cuisine)
+
+    end
+
+    # def print_restaurant_name
+
+
+    # end
 
 
       # self.print_restaurants(zip_code, cuisine)

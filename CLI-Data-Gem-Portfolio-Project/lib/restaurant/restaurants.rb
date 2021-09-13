@@ -23,7 +23,7 @@ class Restaurants
   #     # self.all << self
   # end
 
-  def initialize(hash)
+  def initialize(key, value)
     # binding.pry
     hash.each do |k, v|
       self.send("#{k}=", v) #if self.respond_to?("#{k}=")
@@ -44,6 +44,8 @@ class Restaurants
   #   self.all.each {|r| r.last_name == name}
   #   # binding.pry
   # end
+
+  binding.pry
 
 
 

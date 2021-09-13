@@ -9,6 +9,7 @@ class CLI
     def call
        welcome
        get_restaurants
+
        
     
 
@@ -48,6 +49,8 @@ class CLI
       end
     end
 
+    puts "Enter the number of the restaurant you want to learn more about."
+
     self.print_restaurant_name(@new_restaurants)
   
   end
@@ -61,8 +64,38 @@ class CLI
         end
       end 
     end
+    self.get_restaurants_details(@new_restaurants)
   end
 
+  def get_restaurants_details(new_restaurants)
+
+    puts "Please enter the number of the restaurant you want to learn more about."
+
+    @input = gets.strip
+
+    @new_restaurants.each.with_index(1) do |r, i|
+      r.each do |key, value|
+
+        if @input == "#{i}"
+         puts "#{key}: #{value}"
+        end
+      end     
+    end 
+
+          #   puts value
+          # if key == "restaurant_phone"  puts "Phone: " 
+          #   puts value
+          # if key == "restaurant_website"  puts "Website: " 
+          #   puts value
+          # puts Hours: if key == "hours"  puts value.to_s
+          # puts Price: if key == "price_range"  puts value.to_s
+          # puts Cuisine: if key == "cuisine"  puts value.to_s
+
+   
+    
+    
+
+  end 
 
 
   # @new_restaurants.each.with_index(1) do |r, i|

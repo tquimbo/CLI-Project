@@ -42,41 +42,37 @@ class CLI
       cuisine = gets.strip
 
       @new_restaurants = API.call(zip_code, cuisine)
-    
 
       binding.pry
 
+      
 
       if !@new_restaurants
         puts "That zip code was invalid."
       end
     end
 
-    # Restaurants.each.with_index(1) do |r, i|
-    #   puts "#{i}. #{r.restaurant_name}."
+    puts @new_restaurants
+    
+
+    
+  end
+
+
+    # self.print_restaurants(@new_restaurants)
+    
     # end
 
+    # def print_restaurants(new_restaurants)
+     
+    #   puts new_restaurants.restaurant_name
 
-
-
-
+    #   # new_restaurants.each.with_index(1) do { |key, i| }
+    #   #   puts "#{i}. #{key.restaurant_name}"
+    #   # end
     
 
-
-  
-      # binding.pry
-
-      # @new_restaurants.each_with_index do |r, i|
-      # puts "#{i}. #{r.name}"
-
-
-
-    
-    end
-
-    def self.print_restaurants(zip_code, cuisine)
-
-    end
+    # end
 
     # def print_restaurant_name
 
@@ -84,9 +80,9 @@ class CLI
     # end
 
 
-      # self.print_restaurants(zip_code, cuisine)
+      # self.print_restaurants(ne)
 
-      #@new_restaurant = API.call(zip_code, cuisine) 
+     
 
       #new_restaurants = Restaurants.find_by_zip_cuisine(zip_code, cuisine) || API.call(zip_code, cuisine)
 

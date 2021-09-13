@@ -43,21 +43,21 @@ class CLI
 
       @new_restaurants = API.call(zip_code, cuisine)
 
-      binding.pry
-
-      
-
       if !@new_restaurants
         puts "That zip code was invalid."
       end
     end
 
-    puts @new_restaurants
-    
+   
 
-    
+    @new_restaurants.each.with_index(1) do |r, i|
+      r.each do |key, value|
+        puts "{i}"
+        puts value if key == "restaurant_name"
+      end 
+    end
   end
-
+ 
 
     # self.print_restaurants(@new_restaurants)
     

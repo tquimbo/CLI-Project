@@ -52,8 +52,10 @@ class CLI
 
     @new_restaurants.each.with_index(1) do |r, i|
       r.each do |key, value|
-        puts "{i}"
-        puts value if key == "restaurant_name"
+        if key == "restaurant_name" 
+          puts "#{i}." 
+          puts value
+        end
       end 
     end
   end

@@ -48,8 +48,11 @@ class CLI
       end
     end
 
-   
+    self.print_restaurant_name(@new_restaurants)
+  
+  end
 
+    def print_restaurant_name(new_restaurants)
     @new_restaurants.each.with_index(1) do |r, i|
       r.each do |key, value|
         if key == "restaurant_name" 
@@ -59,6 +62,13 @@ class CLI
       end 
     end
   end
+
+
+
+  # @new_restaurants.each.with_index(1) do |r, i|
+  #   r.each do |key, value|
+  #    input = gets.strip
+  #     puts 
  
 
     # self.print_restaurants(@new_restaurants)

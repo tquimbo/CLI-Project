@@ -50,27 +50,42 @@ class CLI
 
   def get_restaurants_details(new_restaurants)
     puts "Please enter the number of the restaurant you want to learn more about."
-    @input = gets.strip
+    input = gets.strip
 
     @new_restaurants.each.with_index(1) do |r, i|
-      #binding.pry
       r.each do |key, value|
-      
-        if @input.to_i > @new_restaurants.count
-          #binding.pry
+        if input.to_i > @new_restaurants.count
           puts "That number was invalid. Please try again"
-          get_restaurants_details(new_restaurants)
+          self.print_restaurant_name(new_restaurants)
         else
-          if @input == "#{i}"
+          if input == "#{i}"
          puts "#{key}: #{value}"
         end
       end     
     end  
   end
+  self.reset
   end
 
 
+def reset
+  puts "To learn more about another restaurant, please enter 1"
+  puts "To exit the program please enter 2"
+  input = gets.strip
+if input == "1"
+    self.get_restaurants
+elsif input == "2"
+    self.exit_program
+else
+  puts "Invalid selection"
+  self.reset
+end
+end
 
-  
+
+def exit_program
+  abort("Thanks for using the Discover Restaurants CLI App!")
+end
+
 
 end

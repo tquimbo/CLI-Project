@@ -9,7 +9,6 @@ class CLI
     def call
        welcome
        get_restaurants
-
     end
 
     def welcome
@@ -20,9 +19,6 @@ class CLI
 # you gottta send zipcode info to API and the API returns a list of cuisines
 
     def get_restaurants
-
-      # new_restaurants = false
-      # while !@new_restaurants
     
       puts "Please enter zip code and cuisine to get relevant restaurants."
 
@@ -31,14 +27,10 @@ class CLI
 
       @new_restaurants = API.call(zip_code, cuisine)
 
-
       if @new_restaurants.empty?
-
         puts "That zip code was invalid or cuisine was invalid. Please try again."
        get_restaurants
       else
-  
-
     self.print_restaurant_name(@new_restaurants)
       end
     end
@@ -59,14 +51,25 @@ class CLI
   def get_restaurants_details(new_restaurants)
     puts "Please enter the number of the restaurant you want to learn more about."
     @input = gets.strip
+
     @new_restaurants.each.with_index(1) do |r, i|
+      #binding.pry
       r.each do |key, value|
-        if @input == "#{i}"
+      
+        if @input.to_i > @new_restaurants.count
+          #binding.pry
+          puts "That number was invalid. Please try again"
+          get_restaurants_details(new_restaurants)
+        else
+          if @input == "#{i}"
          puts "#{key}: #{value}"
         end
       end     
     end  
   end
+  end
+
+
 
   
 

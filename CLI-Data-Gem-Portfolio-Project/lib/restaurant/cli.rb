@@ -25,7 +25,7 @@ class CLI
       @new_restaurants = false
 
       while !@new_restaurants
-      puts "Please enter zip code to get relevant restaurants."
+      puts "Please enter zip code and cuisine to get relevant restaurants."
 
       zip_code = gets.strip
       cuisine = gets.strip
@@ -33,7 +33,7 @@ class CLI
       @new_restaurants = API.call(zip_code, cuisine)
 
       if !@new_restaurants
-        puts "That zip code was invalid."
+        puts "That zip code or cuisine was invalid."
       end
     end
 
@@ -72,4 +72,3 @@ class CLI
 
   end 
 end
-

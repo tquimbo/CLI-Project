@@ -14,7 +14,6 @@ class API
       #this is a simplied API data
    #    url = URI("https://documenu.p.rapidapi.com/restaurants/zip_code/#{zip_code}?size=30&top_cuisines=true")
 
-
       http = Net::HTTP.new(url.host, url.port)
       http.use_ssl = true
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
@@ -31,7 +30,6 @@ class API
       restaurant_data.each do |r|
          Restaurants.new(restaurant_name: r["restaurant_name"], restaurant_phone: r["restaurant_phone"], restaurant_website: r["restaurant_website"], hours: r["hours"], price_range: r["price_range"])
       end
-
    end   
    
 end

@@ -15,9 +15,6 @@ class CLI
         puts "Welcome to the Discover Restaurants CLI App!"
     end  
 
-# enter your zipcode to get a list of cuisines in that zipcode
-# you gottta send zipcode info to API and the API returns a list of cuisines
-
     def get_restaurants
     
       puts "Please enter zip code and cuisine to get relevant restaurants."
@@ -34,7 +31,7 @@ class CLI
     self.print_restaurant_name(@new_restaurants)
       end
     end
-  
+
 
     def print_restaurant_name(new_restaurants)
     @new_restaurants.each.with_index(1) do |r, i|
@@ -69,23 +66,21 @@ class CLI
 
 
 def reset
-  puts "To learn more about another restaurant, please enter 1"
-  puts "To exit the program please enter 2"
-  input = gets.strip
-if input == "1"
-    self.get_restaurants
-elsif input == "2"
-    self.exit_program
-else
-  puts "Invalid selection"
-  self.reset
+    puts "To learn more about another restaurant, please enter 1"
+    puts "To exit the program please enter 2"
+    input = gets.strip
+  if input == "1"
+      self.get_restaurants
+  elsif input == "2"
+      self.exit_program
+  else
+    puts "Invalid selection"
+    self.reset
+  end
 end
-end
-
 
 def exit_program
   abort("Thanks for using the Discover Restaurants CLI App!")
 end
-
 
 end

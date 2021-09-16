@@ -1,3 +1,3 @@
 The Restaurant CLI uses the Documenu API to get details of a restaurant. When you prompt the CLI, you are asked to enter the zip code and cuisine to get a list of restaurants. You can then pick a restaurant and its corresponding number to get additional details.  You also have the option to enter another zip code and cuisine to learn about more restaurants or end the program. 
 
-The gems that need to be installed are uri, net/http, openssl, and json.
+The gems that need to be installed are uri, net/http, openssl, nokogiri, and json.

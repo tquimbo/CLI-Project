@@ -28,8 +28,9 @@ class CLI
         puts "That zip code was invalid or cuisine was invalid. Please try again."
        get_restaurants
       else
-    self.print_restaurant_name(@new_restaurants)
+      self.print_restaurant_name(@new_restaurants)
       end
+
     end
 
 
@@ -61,7 +62,7 @@ class CLI
       end     
     end  
   end
-  self.reset
+    self.reset
   end
 
 

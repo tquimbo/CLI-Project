@@ -1,3 +1,0 @@
-class location
-
-end

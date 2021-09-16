@@ -25,7 +25,7 @@ class CLI
       @new_restaurants = API.call(zip_code, cuisine)
 
       if @new_restaurants.empty?
-        puts "That zip code was invalid or cuisine was invalid. Please try again."
+        puts "That zip code or cuisine was invalid. Please try again."
        get_restaurants
       else
       self.print_restaurant_name(@new_restaurants)
